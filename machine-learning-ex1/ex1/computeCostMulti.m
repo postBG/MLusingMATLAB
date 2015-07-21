@@ -13,8 +13,13 @@ J = 0;
 % Instructions: Compute the cost of a particular choice of theta
 %               You should set J to the cost.
 
+% X:m*3, y:m*1, theta:3*1
+hypho = X * theta;
+err = hypho - y;
+% sq_of_error = err .^ 2;
+% J = (1/(2*m))*sum(sq_of_error);
 
-
+J = (1/(2*m))*(err' * err);
 
 
 % =========================================================================
