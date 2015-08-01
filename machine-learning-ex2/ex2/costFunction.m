@@ -20,11 +20,14 @@ grad = zeros(size(theta));
 % Note: grad should have the same dimensions as theta
 %
 
+% X = m*(n+1), y = m*1, theta = (n+1)*1, grad = (n+1)*1
+m = size(X, 1);
+raw_hypho = X * theta;
+hypho = sigmoid(raw_hypho); % m * 1
 
+J = (-1/ m) * (y'*log(hypho) + (1-y)'*log(1-hypho));
 
-
-
-
+grad = (1/m) * (X' * (hypho-y));
 
 
 % =============================================================

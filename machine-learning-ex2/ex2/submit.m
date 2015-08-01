@@ -1,5 +1,5 @@
 function submit()
-  addpath('./lib');
+  addpath('C:\Users\USER\Documents\MATLAB\MLusingMATLAB\machine-learning-ex2\ex2\lib');
 
   conf.assignmentSlug = 'logistic-regression';
   conf.itemName = 'Logistic Regression';
