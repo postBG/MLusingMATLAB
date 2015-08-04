@@ -21,13 +21,25 @@ p = zeros(size(X, 1), 1);
 %       can use max(A, [], 2) to obtain the max for each row.
 %
 
+% add x0
+% m = 5000, n = 400
+% X = 5000*401
+X = [ones(m, 1) X];
 
+% a2 = 5000*25
+Z2 = X * Theta1';
+a2 = sigmoid(Z2);
 
+hidden_unit_num = size(a2, 1);
 
+% a2 = 5000*26
+a2 = [ones(hidden_unit_num, 1) a2];
 
+% hyphothesis = a3 = 5000*10
+Z3 = a2 * Theta2';
+a3 = sigmoid(Z3);
 
-
-
+[X, p] = max(a3, [], 2)
 
 % =========================================================================
 

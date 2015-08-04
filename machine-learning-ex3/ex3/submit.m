@@ -1,5 +1,5 @@
 function submit()
-  addpath('./lib');
+  addpath('C:\Users\USER\Documents\MATLAB\MLusingMATLAB\machine-learning-ex3\ex3/lib');
 
   conf.assignmentSlug = 'multi-class-classification-and-neural-networks';
   conf.itemName = 'Multi-class Classification and Neural Networks';
