@@ -62,6 +62,17 @@ Theta2_grad = zeros(size(Theta2));
 %               and Theta2_grad from Part 2.
 %
 
+% Part 1
+
+% add x0
+% m = 5000, n = 400
+% X = 5000 * 401 = m * (n+1)
+X = [ones(m, 1) X];
+
+% a2 = 5000 * 25
+% Theta1 = 25 * 401
+Z2 = X * Theta1';
+a2 = sigmoid(Z2);
 
 
 
