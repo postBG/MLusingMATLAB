@@ -98,10 +98,8 @@ for i=1:m
 end
 J = (-1 / m) * J;
 
-% Note that you should not be regularizing the terms that correspond to the
-% bias
-regularization_term = (lambda / (2 * m)) * ((sum(sum(Theta1(:, 2:end) .^ 2))) + (sum(sum(Theta2(:, 2:end) .^ 2))));
-J = J + regularization_term;
+regularization_term = (lambda / (2 * m)) * ((sum) + ());
+
 %% Implementation of Part2
 
 
