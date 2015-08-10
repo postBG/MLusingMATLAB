@@ -64,22 +64,22 @@ Theta2_grad = zeros(size(Theta2));
 
 %% Implementation of Part 1
 % add x0
-% m = 5000, n = 400, K = 10
+% m = 5000, n = 400, K = 10, h = 25
 % X = 5000 * 401 = m * (n+1)
 a1 = [ones(m, 1) X];
 
 % a2 = 5000 * 25
 % Theta1 = 25 * 401
-Z2 = a1 * Theta1';
-a2 = sigmoid(Z2);
+z2 = a1 * Theta1';
+a2 = sigmoid(z2);
 
 % a2 = 5000 * 26
 a2 = [ones(m, 1) a2];
 
 % hyphothesis = a3 = 5000 * 10 = m * K
 % Theta2 = 10 * 26
-Z3 = a2 * Theta2';
-a3 = sigmoid(Z3);
+z3 = a2 * Theta2';
+a3 = sigmoid(z3);
 hyphothesis = a3;
 
 K = size(hyphothesis, 2);
@@ -98,22 +98,35 @@ for i=1:m
 end
 J = (-1 / m) * J;
 
-regularization_term = (lambda / (2 * m)) * ((sum) + ());
-
+% Note that you should not be regularizing the terms that correspond to the
+% bias
+regularization_term = (lambda / (2 * m)) * ((sum(sum(Theta1(:, 2:end) .^ 2))) + (sum(sum(Theta2(:, 2:end) .^ 2))));
+J = J + regularization_term;
 %% Implementation of Part2
 
+% In our case, small delta(i) must be m * (# of units in Layer l)
+% Because, we calculate all cases(# = m) together.(That is, we summarize one
+% iteration's information to one row. Hence, Because there is total m iterations, We should be get m row's)
 
+% new_y = m * K, a3 = m * K
+% d3 = m * K
+d3 = a3 - new_y;
 
+% Theta2(, 2:end) = K * h
+% d2 = m * h
+d2 = (d3 * Theta2(:, 2:end)) .* sigmoidGradient(z2);
 
+% a1 = m * (n + 1)
+% Delta1 = h * (n + 1) 
+Delta1 = d2' * a1;
 
+% Delta2 = K * (h+1)
+Delta2 = d3' * a2;
 
+Theta1_grad = (1 / m) * Delta1;
+Theta2_grad = (1 / m) * Delta2;
 
-
-
-
-
-
-
+%% Implementation of Part3
 
 
 % -------------------------------------------------------------
