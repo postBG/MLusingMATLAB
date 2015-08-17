@@ -1,5 +1,5 @@
 function submit()
-  addpath('./lib');
+  addpath('C:\Users\USER\Documents\MATLAB\MLusingMATLAB\machine-learning-ex5\ex5/lib');
 
   conf.assignmentSlug = 'regularized-linear-regression-and-bias-variance';
   conf.itemName = 'Regularized Linear Regression and Bias/Variance';

@@ -1,5 +1,5 @@
 function submitWithConfiguration(conf)
-  addpath('./lib/jsonlab');
+  addpath('C:\Users\USER\Documents\MATLAB\MLusingMATLAB\machine-learning-ex5\ex5/lib/jsonlab');
 
   parts = parts(conf);
 

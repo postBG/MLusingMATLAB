@@ -19,16 +19,16 @@ grad = zeros(size(theta));
 %               You should set J to the cost and grad to the gradient.
 %
 
-% hypho = m * 1
 hypho = X * theta;
 err = hypho - y;
 regularization_term = (lambda / (2 * m)) * (sum(theta(2:end) .^ 2));
 
 J = ((1 / (2 * m)) * (err' * err)) + regularization_term;
 
-% When you confuse with this line, think about shape of X
 grad = ((1 / m) * (X' * (hypho - y))) + (lambda / m) * theta;
 grad(1) = grad(1) - (lambda / m) * theta(1);
+
+
 
 
 
