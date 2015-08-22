@@ -16,9 +16,10 @@ sim = 0;
 %
 %
 
+numerator = (norm(x1 - x2) ^ 2);
+denominator = 2 * (sigma ^ 2);
 
-
-
+sim = exp(-1 * (numerator / denominator) );
 
 
 % =============================================================

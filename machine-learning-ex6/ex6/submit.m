@@ -1,5 +1,5 @@
 function submit()
-  addpath('./lib');
+  addpath('C:\Users\USER\Documents\MATLAB\MLusingMATLAB\machine-learning-ex6\ex6/lib');
 
   conf.assignmentSlug = 'support-vector-machines';
   conf.itemName = 'Support Vector Machines';
