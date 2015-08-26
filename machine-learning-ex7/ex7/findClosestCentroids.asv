@@ -22,10 +22,9 @@ idx = zeros(size(X,1), 1);
 %
 
 for i = 1:size(X)
-    diff = bsxfun(@minus, centroids, X(i, :));
+    diff = bsxfun(@minus, centroids, X(i));
     sq_diff = diff .^ 2;
-    sq_norm = sum(sq_diff, 2);
-    [~, idx(i)] = min(sq_norm);
+    
 end    
 
 

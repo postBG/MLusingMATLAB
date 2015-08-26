@@ -1,5 +1,5 @@
 function submit()
-  addpath('./lib');
+  addpath('C:\Users\USER\Documents\MATLAB\MLusingMATLAB\machine-learning-ex7\ex7/lib');
 
   conf.assignmentSlug = 'k-means-clustering-and-pca';
   conf.itemName = 'K-Means Clustering and PCA';
