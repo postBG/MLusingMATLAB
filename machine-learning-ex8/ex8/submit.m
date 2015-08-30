@@ -1,5 +1,5 @@
 function submit()
-  addpath('./lib');
+  addpath('C:\Users\USER\Documents\MATLAB\MLusingMATLAB\machine-learning-ex8\ex8/lib');
 
   conf.assignmentSlug = 'anomaly-detection-and-recommender-systems';
   conf.itemName = 'Anomaly Detection and Recommender Systems';
