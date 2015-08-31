@@ -43,7 +43,11 @@ Theta_grad = zeros(size(Theta));
 predictions = X * Theta';
 errors = predictions - Y;
 sq_errors = errors .^ 2;
-J = (1 / 2) * sum(sum(sq_errors .* R));
+
+regularization_term_Theta = (lambda / 2) * sum(sum(Theta .^ 2));
+regularization_term_X = (lambda / 2) * sum(sum(X .^ 2));
+J = (1 / 2) * sum(sum(sq_errors .* R)) + regularization_term_Theta + regularization_term_X;
+
 
 
 
