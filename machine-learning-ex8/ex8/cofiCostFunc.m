@@ -48,10 +48,25 @@ regularization_term_Theta = (lambda / 2) * sum(sum(Theta .^ 2));
 regularization_term_X = (lambda / 2) * sum(sum(X .^ 2));
 J = (1 / 2) * sum(sum(sq_errors .* R)) + regularization_term_Theta + regularization_term_X;
 
+for i = 1:num_movies
+    user_idx = (R(i, :) == 1); % Equivalent, but more faster than "idx = find(R(i, :) == 1)"
+    Theta_temp = Theta(user_idx, :); % num_of_watched_users * n
+    Y_temp = Y(i, user_idx); % 1 * num_of_watched_users
+    regularization_term = lambda * X(i, :);
+    % (X(i, :) * Theta_temp') - Y_temp = 1 * num_of_watched_users; 
+    % Each elements of this vector is error of estimation of each users
+    X_grad(i, :) = (((X(i, :) * Theta_temp') - Y_temp) * Theta_temp) + regularization_term;
+end
 
-
-
-
+for j = 1:num_users
+    movie_idx = (R(:, j) == 1);
+    X_temp = X(movie_idx, :); % num_of_watched_movies * n
+    Y_user_j = Y(:, j); 
+    Y_temp = Y_user_j(movie_idx); % num_of_watched_movies * 1
+    regularization_term = lambda * Theta(j, :);
+    
+    Theta_grad(j, :) = (((X_temp * Theta(j, :)') - Y_temp)' * X_temp) + regularization_term; 
+end
 
 
 % =============================================================
